@@ -1,8 +1,142 @@
+:root {
+    --material-orange: #C2410C;
+    --hover: #EA580C;
+    --border-left: 4px solid var(--material-orange);
+    --border-bottom: 3px solid var(--material-orange);
+    --border-form: 1px solid #C1C4C8;
+    --box-shadow: 0px 2px 2px #D6E2EF;
+}
+
 body {
     background-color: #F2F6FA;
     font-family: "Noto Sans Bhaiksuki", sans-serif;
 }
 
+
 .container {
-    padding: 0 1rem;
+    padding: 3rem 1rem;
+    max-width: 90.375rem;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    width: max-content;
+    border-left: var(--border-left);
+    padding-left: .25rem;
+    border-bottom: var(--border-bottom);
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+header {
+    flex-basis: clamp(9rem, 30ch, 25%);
+    flex-grow: 1;
+}
+
+form {
+    background-color: white;
+    padding: 2rem 1rem;
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 70%;
+}
+
+form label:not(input[type="radio"] + label, input[type="checkbox"] + label) {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    line-height: 1.5;
+}
+
+form input:not([type="radio"], [type="checkbox"], [type="submit"]),
+select,
+textarea {
+    border: var(--border-form);
+    border-radius: 8px;
+    height: 3.25rem;
+    padding: .75rem 1rem;
+    width: 100%;
+}
+
+form fieldset:nth-of-type(2) div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+form fieldset:nth-of-type(2) label {
+    padding: 1rem;
+    border-radius: .5rem;
+    border: 1px solid #c1c4c8;
+    cursor: pointer;
+    flex-grow: 1;
+    /* Threshold: if container < 00px, items become 100% wide (stack) */
+    /* If container > 600px, items take their share of the row */
+    flex-basis: calc((37rem - 100%) * 999);
+
+    /* Constraints to keep items usable after the switch */
+    min-inline-size: min(100%, 10rem);
+    max-inline-size: 100%;
+
+
+    white-space: nowrap;
+
+    text-align: center;
+
+}
+
+form textarea {
+    min-height: 12.5rem;
+    resize: vertical;
+}
+
+fieldset>div {
+    margin-bottom: 2rem;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+span {
+    margin-right: 1rem;
+}
+
+fieldset label:has(input[type="radio"]:checked) {
+    background-color: var(--hover);
+    color: #fff;
+}
+
+input[type="submit"] {
+    background-color: var(--material-orange);
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--hover);
+}
+
+@media (min-width: 700px) {
+    .inner-header-container {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .inner-header-container img {
+        width: 346px;
+    }
 }
